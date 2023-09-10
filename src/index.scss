@@ -1,0 +1,684 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    //pad de font
+}
+
+body{
+    background-color: rgb(227, 227, 227);
+    display: flex;
+    margin: 100px;
+
+    .menu{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+
+        .title{
+            text-align: end;
+            font-family: 'Orbitron', sans-serif;
+
+           h1{
+                font-size: 110px;
+            }
+
+            p{
+                position: relative;
+                left: 25px;
+                font-size: 24px;
+            }
+        }
+
+        .levelSelection{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+
+            .levelSelector{
+                width: 200px;
+                height: 200px;
+                background-color: inherit;
+                color: black;
+                border: 5px solid;
+                border-radius: 15px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 64px;
+                font-family: 'Orbitron', sans-serif;
+                transition: 0.1s;
+
+                &:hover{
+                    scale: 1.1;
+                }
+            }
+
+            .tutoSelector{
+                width: calc(200px * 3 + 30px * 2);
+                height: 200px;
+                background: inherit;
+                border: 5px solid purple;
+                border-radius: 15px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                font-size: 64px;
+                font-family: 'Orbitron', sans-serif;
+                transition: 0.1s;
+
+                &:hover{
+                    scale: 1.05;
+                }
+
+                h1{
+                    font-size: 80px;
+                }
+
+                p{
+                    font-size: 28px;
+                }
+            }
+        }
+
+        .dataLevel{
+            position: fixed;
+            left: 35%;
+            width: 30%;
+            top: 15%;
+            height: 70%;
+            background-color: white;
+            border: 8px solid black;
+            border-radius: 25px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            font-family: 'Orbitron', sans-serif;
+            gap: 30px;
+            transition: 0.1s ease;
+        }
+
+        .dataLevelTuto{
+            position: fixed;
+            left: 15%;
+            top: 15%;
+            width: 70%;
+            height: 70%;
+            background-color: white;
+            border: 8px solid black;
+            border-radius: 25px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            font-family: 'Orbitron', sans-serif;
+            gap: 50px;
+            transition: 0.1s ease;
+        }
+
+        .dataLevelRetour{
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: inherit;
+            color: rgb(184, 184, 184);
+            font-size: 24px;
+            border: 2px solid rgb(184, 184, 184);
+            font-family: 'Orbitron', sans-serif;
+            transition: 0.2s ease;
+
+            &:hover{
+                color: rgb(123, 123, 123);
+                border: 2px solid rgb(123, 123, 123);
+                
+                p{
+                    margin-left: 40px;
+                }
+            }
+
+            p{
+                background-color: white;
+                width: max-content;
+                position: relative;
+                padding: 2px 0;
+                margin-left: 15px;
+                transition: 0.5s ease;
+            }
+        }
+
+        .dataLevelHeader{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+
+            .title{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                h1{
+                    font-size: 74px;
+                }
+
+                .specific{
+                    
+                    div{
+                        position: relative;
+                        left: 10px;
+                    }
+
+                    p{
+                        font-size: 24px;
+                        position: relative;
+                        left: 10px;
+                    }
+                }
+            }
+        }
+
+        .img{
+            width: 100%;
+            height: 50%;
+            background-color: blue;
+        }
+
+        .dataLevelJouer{
+            padding: 15px;
+            width: 50%;
+            border: none;
+            background-color: black;
+            color: white;
+            font-size: 24px;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            transition: 0.1s ease;
+
+            &:hover{
+                scale: 1.1;
+            }
+        }
+    }
+
+    .displayGame{
+
+        display: flex;
+
+        .endBoard{
+            position: fixed;
+            left: 35%;
+            top: 27%;
+            width: 30%;
+            min-width: max-content;
+            height: 46%;
+            padding: 50px;
+            display: flex;
+            background-color: white;
+            border: 8px solid black;
+            border-radius: 25px;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+            font-family: 'Orbitron', sans-serif;
+            z-index: 15;
+            transition: 0.1s;
+    
+            .title{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+    
+                h1{
+                    font-size: 74px;
+                }
+            }
+    
+            .infos{
+                width: 100%;
+                height: 15%;
+                font-size: 24px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 15px;
+            }
+    
+            button{
+                padding: 15px;
+                width: 50%;
+                border: none;
+                background-color: black;
+                color: white;
+                font-size: 24px;
+                font-family: 'Orbitron', sans-serif;
+                letter-spacing: 1px;
+                transition: 0.1s ease;
+    
+                &:hover{
+                    scale: 1.1;
+                }
+            }
+        }
+        
+        .game{
+            $heightSquare: 150px;
+            
+            display: grid;
+            position: relative;
+
+            animation: BoardAppear 0.1s linear 0.5s 1 normal forwards;
+
+            @keyframes squareAppear {
+                from{
+                    border: 1px transparent solid;
+                    background-color: transparent;
+                }
+                to{
+                    border: 1px black solid;
+                    background-color: white;
+                }
+            }
+
+            @keyframes wallAppear {
+                from{
+                    opacity: 0;
+                }
+                to{
+                    opacity: 100%;
+                }
+            }
+
+    
+            .square{
+                width: $heightSquare;
+                height: $heightSquare;
+                z-index: 0;
+
+                animation: squareAppear 0.1s linear 0.5s 1 normal forwards;
+
+                @keyframes squareAppear {
+                    from{
+                        border: 1px transparent solid;
+                        background-color: transparent;
+                    }
+                    to{
+                        border: 1px rgb(202, 202, 202) solid;
+                        background-color: white;
+                    }
+                }
+            }
+    
+            .antiLink{
+                position: absolute;
+                width: $heightSquare;
+                height: $heightSquare;
+                background-color: transparent;
+                z-index: 9;
+            }
+    
+            .wall{
+                $widthWall: 4px;
+                $heightWall: $heightSquare + $widthWall;
+                width: $widthWall;
+                height: $heightWall;
+                background-color: black;
+                position: absolute;
+                border-radius: 4px;
+                transform-origin: top;
+                rotate: 0deg;
+                opacity: 0;
+                animation: wallAppear 0.5s linear 1s 1 normal forwards;
+            }
+    
+            .door{
+                $widthDoor: 16px;
+                $heightDoor: $heightSquare + 4px;
+                width: $widthDoor;
+                height: $heightDoor;
+                position: absolute;
+                border: 4px solid black;
+                border-radius: 4px;
+                transform-origin: top;
+                rotate: 0deg;
+                transition: 0.5s;
+                opacity: 0;
+                animation: wallAppear 0.5s linear 1s 1 normal forwards;
+    
+                .opening{
+                    position: relative;
+                    left: -4px;
+                    width: $widthDoor;
+                    border-top: 4px solid black;
+                    border-bottom: 4px solid black;
+                    background-color: white;
+                    transition: 0.5s;
+    
+                    display: flex;
+                    justify-content: center;
+    
+                    .trait{
+                        width: 2px;
+                        height: 100%;
+                        background-color: rgb(202, 202, 202);
+                    }
+                }
+            }
+    
+            .slab{
+                width: $heightSquare * 0.8;
+                height: $heightSquare * 0.8;
+                margin-top: $heightSquare * 0.1;
+                margin-left: $heightSquare * 0.1;
+                position: absolute;
+                border: 4px solid black;
+                border-radius: 5px;
+                transition: 0.5s ease;
+                z-index: 1;
+                opacity: 0;
+                animation: wallAppear 0.5s linear 1s 1 normal forwards;
+    
+                display: flex;
+                justify-content: center;
+                align-items: center;
+    
+                .slabText{
+                    font-size: 75px;
+                    font-family: 'Orbitron', sans-serif;
+                }
+            }
+    
+            .bigSlab{
+                margin-top: $heightSquare * 0.1;
+                margin-left: $heightSquare * 0.1;
+                position: absolute;
+                border: 4px solid black;
+                background: red;
+                border-radius: 5px;
+                transition: 0.5s ease;
+                z-index: 1;
+                opacity: 0;
+                animation: wallAppear 0.5s linear 1s 1 normal forwards;
+    
+                display: flex;
+                justify-content: center;
+                align-items: center;
+    
+                .bigSlabText{
+                    font-size: 250px;
+                    font-family: 'Orbitron', sans-serif;
+                }
+            }
+    
+            .littleRed{
+                width: $heightSquare;
+                height: $heightSquare;
+                position: absolute;
+                transition: 0.5s ease;
+                z-index: 1;
+            }
+    
+            .link{
+                transition: 0.4s ease;
+                position: absolute;
+                filter: opacity(0);
+                animation: linkAppear 0.5s linear 1.5s 1 normal forwards;
+
+                @keyframes linkAppear {
+                    from{
+                        filter: opacity(0);
+                    }
+                    to{
+                        filter: opacity(1);
+                    }
+                }
+            }
+    
+            .blob{
+                width: $heightSquare;
+                height: $heightSquare;
+                position: absolute;
+                transition: 0.3s ease;
+                opacity: 0;
+                animation: wallAppear 0.5s linear 2s 1 normal forwards;
+            }
+
+            .cloneBlob{
+                animation: none;
+                opacity: 1;
+            }
+
+            #red{
+                animation-delay: 1.4s;
+                .oeil{animation-delay: 12s;}
+            }
+
+            #blue{
+                animation-delay: 2s;
+                .oeil{animation-delay: 13s;}
+            }
+
+            #green{
+                animation-delay: 1s;
+                .oeil{animation-delay: 16s;}
+            }
+
+            #purple{
+                animation-delay: 1.8s;
+                .oeil{animation-delay: 20s;}
+            }
+
+            #orangered{
+                animation-delay: 1.2s;
+                .oeil{animation-delay: 15s;}
+            }
+    
+            .visualBlob{
+                position: relative;
+                width: 80%;
+                height: 60%;
+                margin-left: 10%;
+                margin-top: 20%;
+                border: 3px solid black;
+                border-radius: 60px 60px 30px 30px;
+                overflow: hidden;
+                animation: blobPermaAnimation 1.2s ease-in-out 1.5s infinite alternate forwards;
+
+                @keyframes blobPermaAnimation {
+                    from{
+                        height: 60%;
+                        width: 80%;
+                        right: 0;
+                        bottom: 0;
+                    }
+                    to{
+                        height: 65%;
+                        width: 82%;
+                        right: 1%;
+                        bottom: 8px;
+                    }
+                }
+
+                .indicator{
+                    position: absolute;
+                    width: 100%;
+                    top: 20px;
+                    height: 20px;
+                    background-color: black;
+                    transition: 0.2s;
+                }
+
+                .oeil{
+                    width: 20px;
+                    height: 30px;
+                    top: 30px;
+                    position: absolute;
+                    background-color: white;
+                    border: 3px solid black;
+                    border-radius: 50%;
+
+                    animation: clicOeilAnimation 5s ease-in-out 1.5s infinite alternate forwards;
+
+                    @keyframes clicOeilAnimation {
+                        0%{
+                            transform: scaleY(0);
+                        }
+                        2%{
+                            transform: scaleY(1);
+                        }
+                        100%{
+                            transform: scaleY(1);
+                        }
+                    }
+                }
+    
+                .oeilGauche{
+                    left: 28px;
+                }
+    
+                .oeilDroit{
+                    left: 68px;
+                }
+            }
+
+            .clone{
+                animation-duration: 3s;
+
+                .croix{
+                    width: 20px;
+                    height: 35px;
+                    top: 25px;
+                    position: absolute;
+                    margin-left: 5px;
+                    display: flex;
+    
+                    .croixTraitGauche{
+                        height: 100%;
+                        width: 4px;
+                        background-color: white;
+                        rotate: -25deg;
+                        border-radius: 50px;
+                        position: relative;
+                        left: 2.5px;
+                    }
+    
+                    .croixTraitDroite{
+                        height: 100%;
+                        width: 4px;
+                        background-color: white;
+                        rotate: 25deg;
+                        border-radius: 50px;
+                    }
+                }
+            }
+        }
+
+        .buttonPanel{
+            position: fixed;
+            top: 25px;
+            width: 100px;
+            height: 100px;
+            border: 8px solid black;
+            border-radius: 50%;
+            font-size: 64px;
+            z-index: 12;
+            transition: 0.1s;
+            font-family: 'Orbitron', sans-serif;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+
+            .barrette{
+                width: 12px;
+                height: 60px;
+                background-color: black;
+                border-radius: 3px;
+            }
+        }
+
+        .buttonSettings{
+            right: 25px;
+            rotate: 90deg;
+        }
+
+        .buttonHelper{
+            left: 25px;
+        }
+
+        .panel{
+            position: fixed;
+            left: 35%;
+            top: 27%;
+            width: 30%;
+            height: 46%;
+            padding: 50px;
+            background-color: white;
+            border: 8px solid black;
+            border-radius: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+            font-family: 'Orbitron', sans-serif;
+            z-index: 15;
+            transition: 0.1s;
+
+            h1{
+                font-size: 36px;
+            }
+
+            button{
+                width: 400px;
+                height: 30%;
+                border: none;
+                background: black;
+                color: white;
+                font-size: 28px;
+                letter-spacing: 1px;
+                font-family: 'Orbitron', sans-serif;
+                transition: 0.2s;
+
+                &:hover{
+                    scale: 1.1;
+                }
+            }
+        }
+
+        .panelSettings{
+            min-width: max-content;
+        }
+
+        .panelHelper{
+            border-radius: 0;
+            overflow: scroll;
+            font-size: 28px;
+            gap: 50px;
+            top: 15%;
+            height: 70%;
+            left: 30%;
+            width: 40%;
+
+            button{
+                padding: 25px;
+            }
+        }
+    }
+}

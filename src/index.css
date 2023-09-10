@@ -1,13 +1,601 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@800&display=swap");
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-color: rgb(227, 227, 227);
+  display: flex;
+  margin: 100px;
 }
+body .menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+body .menu .title {
+  text-align: end;
+  font-family: "Orbitron", sans-serif;
+}
+body .menu .title h1 {
+  font-size: 110px;
+}
+body .menu .title p {
+  position: relative;
+  left: 25px;
+  font-size: 24px;
+}
+body .menu .levelSelection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+body .menu .levelSelection .levelSelector {
+  width: 200px;
+  height: 200px;
+  background-color: inherit;
+  color: black;
+  border: 5px solid;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 64px;
+  font-family: "Orbitron", sans-serif;
+  transition: 0.1s;
+}
+body .menu .levelSelection .levelSelector:hover {
+  scale: 1.1;
+}
+body .menu .levelSelection .tutoSelector {
+  width: 660px;
+  height: 200px;
+  background: inherit;
+  border: 5px solid purple;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 64px;
+  font-family: "Orbitron", sans-serif;
+  transition: 0.1s;
+}
+body .menu .levelSelection .tutoSelector:hover {
+  scale: 1.05;
+}
+body .menu .levelSelection .tutoSelector h1 {
+  font-size: 80px;
+}
+body .menu .levelSelection .tutoSelector p {
+  font-size: 28px;
+}
+body .menu .dataLevel {
+  position: fixed;
+  left: 35%;
+  width: 30%;
+  top: 15%;
+  height: 70%;
+  background-color: white;
+  border: 8px solid black;
+  border-radius: 25px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  font-family: "Orbitron", sans-serif;
+  gap: 30px;
+  transition: 0.1s ease;
+}
+body .menu .dataLevelTuto {
+  position: fixed;
+  left: 15%;
+  top: 15%;
+  width: 70%;
+  height: 70%;
+  background-color: white;
+  border: 8px solid black;
+  border-radius: 25px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  font-family: "Orbitron", sans-serif;
+  gap: 50px;
+  transition: 0.1s ease;
+}
+body .menu .dataLevelRetour {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: inherit;
+  color: rgb(184, 184, 184);
+  font-size: 24px;
+  border: 2px solid rgb(184, 184, 184);
+  font-family: "Orbitron", sans-serif;
+  transition: 0.2s ease;
+}
+body .menu .dataLevelRetour:hover {
+  color: rgb(123, 123, 123);
+  border: 2px solid rgb(123, 123, 123);
+}
+body .menu .dataLevelRetour:hover p {
+  margin-left: 40px;
+}
+body .menu .dataLevelRetour p {
+  background-color: white;
+  width: -moz-max-content;
+  width: max-content;
+  position: relative;
+  padding: 2px 0;
+  margin-left: 15px;
+  transition: 0.5s ease;
+}
+body .menu .dataLevelHeader {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+body .menu .dataLevelHeader .title {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body .menu .dataLevelHeader .title h1 {
+  font-size: 74px;
+}
+body .menu .dataLevelHeader .title .specific div {
+  position: relative;
+  left: 10px;
+}
+body .menu .dataLevelHeader .title .specific p {
+  font-size: 24px;
+  position: relative;
+  left: 10px;
+}
+body .menu .img {
+  width: 100%;
+  height: 50%;
+  background-color: blue;
+}
+body .menu .dataLevelJouer {
+  padding: 15px;
+  width: 50%;
+  border: none;
+  background-color: black;
+  color: white;
+  font-size: 24px;
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 1px;
+  transition: 0.1s ease;
+}
+body .menu .dataLevelJouer:hover {
+  scale: 1.1;
+}
+body .displayGame {
+  display: flex;
+}
+body .displayGame .endBoard {
+  position: fixed;
+  left: 35%;
+  top: 27%;
+  width: 30%;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  height: 46%;
+  padding: 50px;
+  display: flex;
+  background-color: white;
+  border: 8px solid black;
+  border-radius: 25px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  font-family: "Orbitron", sans-serif;
+  z-index: 15;
+  transition: 0.1s;
+}
+body .displayGame .endBoard .title {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+body .displayGame .endBoard .title h1 {
+  font-size: 74px;
+}
+body .displayGame .endBoard .infos {
+  width: 100%;
+  height: 15%;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+body .displayGame .endBoard button {
+  padding: 15px;
+  width: 50%;
+  border: none;
+  background-color: black;
+  color: white;
+  font-size: 24px;
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 1px;
+  transition: 0.1s ease;
+}
+body .displayGame .endBoard button:hover {
+  scale: 1.1;
+}
+body .displayGame .game {
+  display: grid;
+  position: relative;
+  animation: BoardAppear 0.1s linear 0.5s 1 normal forwards;
+}
+@keyframes squareAppear {
+  from {
+    border: 1px transparent solid;
+    background-color: transparent;
+  }
+  to {
+    border: 1px black solid;
+    background-color: white;
+  }
+}
+@keyframes wallAppear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+body .displayGame .game .square {
+  width: 150px;
+  height: 150px;
+  z-index: 0;
+  animation: squareAppear 0.1s linear 0.5s 1 normal forwards;
+}
+@keyframes squareAppear {
+  from {
+    border: 1px transparent solid;
+    background-color: transparent;
+  }
+  to {
+    border: 1px rgb(202, 202, 202) solid;
+    background-color: white;
+  }
+}
+body .displayGame .game .antiLink {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background-color: transparent;
+  z-index: 9;
+}
+body .displayGame .game .wall {
+  width: 4px;
+  height: 154px;
+  background-color: black;
+  position: absolute;
+  border-radius: 4px;
+  transform-origin: top;
+  rotate: 0deg;
+  opacity: 0;
+  animation: wallAppear 0.5s linear 1s 1 normal forwards;
+}
+body .displayGame .game .door {
+  width: 16px;
+  height: 154px;
+  position: absolute;
+  border: 4px solid black;
+  border-radius: 4px;
+  transform-origin: top;
+  rotate: 0deg;
+  transition: 0.5s;
+  opacity: 0;
+  animation: wallAppear 0.5s linear 1s 1 normal forwards;
+}
+body .displayGame .game .door .opening {
+  position: relative;
+  left: -4px;
+  width: 16px;
+  border-top: 4px solid black;
+  border-bottom: 4px solid black;
+  background-color: white;
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+}
+body .displayGame .game .door .opening .trait {
+  width: 2px;
+  height: 100%;
+  background-color: rgb(202, 202, 202);
+}
+body .displayGame .game .slab {
+  width: 120px;
+  height: 120px;
+  margin-top: 15px;
+  margin-left: 15px;
+  position: absolute;
+  border: 4px solid black;
+  border-radius: 5px;
+  transition: 0.5s ease;
+  z-index: 1;
+  opacity: 0;
+  animation: wallAppear 0.5s linear 1s 1 normal forwards;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .displayGame .game .slab .slabText {
+  font-size: 75px;
+  font-family: "Orbitron", sans-serif;
+}
+body .displayGame .game .bigSlab {
+  margin-top: 15px;
+  margin-left: 15px;
+  position: absolute;
+  border: 4px solid black;
+  background: red;
+  border-radius: 5px;
+  transition: 0.5s ease;
+  z-index: 1;
+  opacity: 0;
+  animation: wallAppear 0.5s linear 1s 1 normal forwards;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .displayGame .game .bigSlab .bigSlabText {
+  font-size: 250px;
+  font-family: "Orbitron", sans-serif;
+}
+body .displayGame .game .littleRed {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  transition: 0.5s ease;
+  z-index: 1;
+}
+body .displayGame .game .link {
+  transition: 0.4s ease;
+  position: absolute;
+  filter: opacity(0);
+  animation: linkAppear 0.5s linear 1.5s 1 normal forwards;
+}
+@keyframes linkAppear {
+  from {
+    filter: opacity(0);
+  }
+  to {
+    filter: opacity(1);
+  }
+}
+body .displayGame .game .blob {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  transition: 0.3s ease;
+  opacity: 0;
+  animation: wallAppear 0.5s linear 2s 1 normal forwards;
+}
+body .displayGame .game .cloneBlob {
+  animation: none;
+  opacity: 1;
+}
+body .displayGame .game #red {
+  animation-delay: 1.4s;
+}
+body .displayGame .game #red .oeil {
+  animation-delay: 12s;
+}
+body .displayGame .game #blue {
+  animation-delay: 2s;
+}
+body .displayGame .game #blue .oeil {
+  animation-delay: 13s;
+}
+body .displayGame .game #green {
+  animation-delay: 1s;
+}
+body .displayGame .game #green .oeil {
+  animation-delay: 16s;
+}
+body .displayGame .game #purple {
+  animation-delay: 1.8s;
+}
+body .displayGame .game #purple .oeil {
+  animation-delay: 20s;
+}
+body .displayGame .game #orangered {
+  animation-delay: 1.2s;
+}
+body .displayGame .game #orangered .oeil {
+  animation-delay: 15s;
+}
+body .displayGame .game .visualBlob {
+  position: relative;
+  width: 80%;
+  height: 60%;
+  margin-left: 10%;
+  margin-top: 20%;
+  border: 3px solid black;
+  border-radius: 60px 60px 30px 30px;
+  overflow: hidden;
+  animation: blobPermaAnimation 1.2s ease-in-out 1.5s infinite alternate forwards;
+}
+@keyframes blobPermaAnimation {
+  from {
+    height: 60%;
+    width: 80%;
+    right: 0;
+    bottom: 0;
+  }
+  to {
+    height: 65%;
+    width: 82%;
+    right: 1%;
+    bottom: 8px;
+  }
+}
+body .displayGame .game .visualBlob .indicator {
+  position: absolute;
+  width: 100%;
+  top: 20px;
+  height: 20px;
+  background-color: black;
+  transition: 0.2s;
+}
+body .displayGame .game .visualBlob .oeil {
+  width: 20px;
+  height: 30px;
+  top: 30px;
+  position: absolute;
+  background-color: white;
+  border: 3px solid black;
+  border-radius: 50%;
+  animation: clicOeilAnimation 5s ease-in-out 1.5s infinite alternate forwards;
+}
+@keyframes clicOeilAnimation {
+  0% {
+    transform: scaleY(0);
+  }
+  2% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+body .displayGame .game .visualBlob .oeilGauche {
+  left: 28px;
+}
+body .displayGame .game .visualBlob .oeilDroit {
+  left: 68px;
+}
+body .displayGame .game .clone {
+  animation-duration: 3s;
+}
+body .displayGame .game .clone .croix {
+  width: 20px;
+  height: 35px;
+  top: 25px;
+  position: absolute;
+  margin-left: 5px;
+  display: flex;
+}
+body .displayGame .game .clone .croix .croixTraitGauche {
+  height: 100%;
+  width: 4px;
+  background-color: white;
+  rotate: -25deg;
+  border-radius: 50px;
+  position: relative;
+  left: 2.5px;
+}
+body .displayGame .game .clone .croix .croixTraitDroite {
+  height: 100%;
+  width: 4px;
+  background-color: white;
+  rotate: 25deg;
+  border-radius: 50px;
+}
+body .displayGame .buttonPanel {
+  position: fixed;
+  top: 25px;
+  width: 100px;
+  height: 100px;
+  border: 8px solid black;
+  border-radius: 50%;
+  font-size: 64px;
+  z-index: 12;
+  transition: 0.1s;
+  font-family: "Orbitron", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+body .displayGame .buttonPanel .barrette {
+  width: 12px;
+  height: 60px;
+  background-color: black;
+  border-radius: 3px;
+}
+body .displayGame .buttonSettings {
+  right: 25px;
+  rotate: 90deg;
+}
+body .displayGame .buttonHelper {
+  left: 25px;
+}
+body .displayGame .panel {
+  position: fixed;
+  left: 35%;
+  top: 27%;
+  width: 30%;
+  height: 46%;
+  padding: 50px;
+  background-color: white;
+  border: 8px solid black;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  font-family: "Orbitron", sans-serif;
+  z-index: 15;
+  transition: 0.1s;
+}
+body .displayGame .panel h1 {
+  font-size: 36px;
+}
+body .displayGame .panel button {
+  width: 400px;
+  height: 30%;
+  border: none;
+  background: black;
+  color: white;
+  font-size: 28px;
+  letter-spacing: 1px;
+  font-family: "Orbitron", sans-serif;
+  transition: 0.2s;
+}
+body .displayGame .panel button:hover {
+  scale: 1.1;
+}
+body .displayGame .panelSettings {
+  min-width: -moz-max-content;
+  min-width: max-content;
+}
+body .displayGame .panelHelper {
+  border-radius: 0;
+  overflow: scroll;
+  font-size: 28px;
+  gap: 50px;
+  top: 15%;
+  height: 70%;
+  left: 30%;
+  width: 40%;
+}
+body .displayGame .panelHelper button {
+  padding: 25px;
+}/*# sourceMappingURL=index.css.map */
