@@ -972,12 +972,17 @@ export class Game extends React.Component{
 
         const paramGamePosition = () => {
 
-            const justifyContent = window.innerWidth - 200 < 150 * nbSquareWidth ? 'start' : 'center'
-            const alignItems = window.innerHeight - 200 < 150 * nbSquareHeight ? 'start' : 'center'
-            const width = window.innerWidth - 200 < 150 * nbSquareWidth ? 'calc(100% + 100px)' : 'calc(100vw - 100px * 2)'
-            const height = window.innerHeight - 200 < 150 * nbSquareHeight ? '100%' : 'calc(100vh - 100px * 2)'
+            if(window.innerWidth > '768px'){
+                const justifyContent = window.innerWidth - 200 < 150 * nbSquareWidth ? 'start' : 'center'
+                const alignItems = window.innerHeight - 200 < 150 * nbSquareHeight ? 'start' : 'center'
+                const width = window.innerWidth - 200 < 150 * nbSquareWidth ? 'calc(100% + 100px)' : 'calc(100vw - 100px * 2)'
+                const height = window.innerHeight - 200 < 150 * nbSquareHeight ? '100%' : 'calc(100vh - 100px * 2)'
 
-            return {justifyContent, alignItems, width, height}
+                return {justifyContent, alignItems, width, height}
+            }
+            else{
+                return {justifyContent: 'start', alignItems: 'start', width: 'auto', height: 'auto'}
+            }
         }
 
         return(
