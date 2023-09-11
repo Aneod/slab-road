@@ -1,5 +1,5 @@
 import React from 'react';
-import { styleBlob } from './styleBlob';
+import { styleBlob } from './styleBlob.ts';
 import { findBestWay } from './bestWay.ts'
 
 class Square extends React.Component{
@@ -34,7 +34,7 @@ class Wall extends React.Component{
         let top = 150 * this.props.coordinates.y - 2
 
         let wallStyle = {}
-        if(this.props. isHorizontal){
+        if(this.props.isHorizontal){
             wallStyle = {
                 rotate: '-90deg',
                 marginTop: '2px',
@@ -237,7 +237,14 @@ class Blob extends React.Component{
                     <div className='visualBlob' id={currentColor} style={{backgroundColor: currentColor}}>
                         <div className='oeil oeilGauche'></div>
                         <div className='oeil oeilDroit'></div>
-                        <div className='indicator' style={{opacity : opacityIndicator}}></div>
+                        <div className='indicator' style={{opacity : opacityIndicator}}>
+                            <div className='indicatorL indicatorL1'></div>
+                            <div className='indicatorL indicatorL2'></div>
+                        </div>
+                        <div className='indicator' style={{opacity : opacityIndicator}}>
+                            <div className='indicatorR indicatorR1'></div>
+                            <div className='indicatorR indicatorR2'></div>
+                        </div>
                     </div>
                 </div>
             )
@@ -257,10 +264,6 @@ class Link extends React.Component{
 }
 
 class Settings extends React.Component{
-    constructor(props){
-        super(props)
-    }
-    
     render(){
         const scaleY = this.props.settingsOpen ? 1 : 0
         const scale = this.props.isDisplay ? 0 : 1
@@ -285,12 +288,7 @@ class Settings extends React.Component{
 }
 
 class Helper extends React.Component{
-    constructor(props){
-        super(props)
-    }
-    
     render(){
-
         const scaleY = this.props.helperOpen ? 1 : 0
         const scale = this.props.isDisplay ? 0 : 1
 
@@ -467,7 +465,7 @@ export class Game extends React.Component{
                 else return undefined
             })
 
-            const listOfOrangeredDOnly = listOfOrangeredD.filter(slabKey => slabKey != undefined)
+            const listOfOrangeredDOnly = listOfOrangeredD.filter(slabKey => slabKey !== undefined)
             const positionsOfOrangeredD = listOfOrangeredDOnly.map(slabIndex => {
                 const left = findIndexPosition(slabIndex).x
                 const top = findIndexPosition(slabIndex).y
@@ -520,9 +518,7 @@ export class Game extends React.Component{
             if(!this.state.canMove) return
             this.setState({canMove: false})
 
-            this.setState({
-                nbCoups: this.state.nbCoups += 1
-            })
+            this.setState({nbCoups: this.state.nbCoups + 1})
 
             let blobPosition = findBlobPosition(blobActived)
             const movesArray = (
@@ -537,7 +533,7 @@ export class Game extends React.Component{
                     this.state.greenDoorsAreClose
                 ))
             
-            if(movesArray == undefined){
+            if(movesArray === undefined){
                 this.setState({canMove: true})
                 return
             }
@@ -623,6 +619,8 @@ export class Game extends React.Component{
                     case 'gray15':
                         this.setState({gray15BlobPosition: {left: x, top: y}})
                         break
+
+                    default: break
                 }
             }
 
@@ -657,7 +655,7 @@ export class Game extends React.Component{
                 if(secondes > 0) timePrinted += secondes + 's'
 
                 this.setState({
-                    tempsFinal: 'Temps de complétion: ' + (dateFinish.getDay() != this.state.date.getDay() ? 'Trop longtemps...' : timePrinted)
+                    tempsFinal: 'Temps de complétion: ' + (dateFinish.getDay() !== this.state.date.getDay() ? 'Trop longtemps...' : timePrinted)
                 })
             }
 
@@ -795,7 +793,7 @@ export class Game extends React.Component{
                             return undefined
                         })
 
-                        const listeOfOnlyOrangeredIndex = listeOfOrangeredIndex.filter(index => index != undefined)
+                        const listeOfOnlyOrangeredIndex = listeOfOrangeredIndex.filter(index => index !== undefined)
 
                         let nbOfFinisherBlob = 0
                         this.state.arrayOfAllBlobColors.forEach(color => {
@@ -811,7 +809,7 @@ export class Game extends React.Component{
                         if(nbOfFinisherBlob === slabListOrangered.length) levelFinished()
                     }
 
-                    else if(currentSquare[2] == 6 && !this.state.yellowSlabKeyActived.includes(currentSquare[4])){
+                    else if(currentSquare[2] === 6 && !this.state.yellowSlabKeyActived.includes(currentSquare[4])){
 
                         const newYellowSlabKeyActived = this.state.yellowSlabKeyActived.concat([currentSquare[4]])
 
@@ -822,7 +820,7 @@ export class Game extends React.Component{
                         setTimeout(() => activetheNextFalseBlob(currentSquare[5], blobPosition), 100)
                     }
 
-                    else if(currentSquare[2] == 7){
+                    else if(currentSquare[2] === 7){
                         if(this.state.greenDoorsAreClose){
                             this.setState({ greenDoorsAreClose: false })
                         }
@@ -872,6 +870,7 @@ export class Game extends React.Component{
                 case 6: return 'yellow'
                 case 7: return 'green'
                 case 8: return 'littleRed'
+                default: return 'blue'
             }
         }
 
@@ -896,7 +895,7 @@ export class Game extends React.Component{
         const changeBlobActived = (newColor) => {
             if(this.state.canMove){
                 this.setState({blobActived:
-                    this.state.blobActived == newColor ? 'any' : newColor
+                    this.state.blobActived === newColor ? 'any' : newColor
                 })
             }
         }
@@ -952,7 +951,7 @@ export class Game extends React.Component{
 
         const isThereBlobOnSquare = (slabIndex) => {
             let blobHere = false
-            this.state.arrayOfAllBlobColors.map(color => {
+            this.state.arrayOfAllBlobColors.forEach(color => {
                 const blobPosition = findBlobPosition(color)
                 const blobIndex = blobPosition.left + blobPosition.top * nbSquareWidth
                 
@@ -992,11 +991,7 @@ export class Game extends React.Component{
                 <div className='game' style={{gridTemplateColumns: `repeat(${nbSquareWidth}, 1fr)`}}>
 
                     {tableauForMap.map((e, index) => {
-                        return(
-                            <Square
-                                key={e}
-                            />
-                        )
+                        return(<Square key={e} />)
                     })}
 
                     {tableauForMap.map((e, index) => {
@@ -1015,7 +1010,7 @@ export class Game extends React.Component{
                             <Blob
                                 key={color}
                                 color = {color}
-                                styleBlob = {styleBlob(color, findBlobPosition(color), this.state.blobActived)}
+                                styleBlob = {styleBlob(color, findBlobPosition(color))}
                                 onClick = {() => changeBlobActived(color)}
                                 blobActived = {this.state.blobActived}
                             />

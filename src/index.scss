@@ -585,11 +585,51 @@ body{
 
                 .indicator{
                     position: absolute;
+                    
+                    top: 0px;
                     width: 100%;
-                    top: 20px;
-                    height: 20px;
-                    background-color: black;
+                    
                     transition: 0.2s;
+
+                    .indicatorL{
+                        position: absolute;
+                        width: 5px;
+                        background-color: black;
+                    }
+
+                    .indicatorL1{
+                        top: 20px;
+                        left: 0px;
+                        height: 70px;
+                        rotate: 75deg;
+                    }
+
+                    .indicatorL2{
+                        top: -2px;
+                        left: 36px;
+                        height: 50px;
+                        rotate: 8deg;
+                    }
+
+                    .indicatorR{
+                        position: absolute;
+                        width: 5px;
+                        background-color: black;
+                    }
+
+                    .indicatorR1{
+                        top: 20px;
+                        right: 0px;
+                        height: 70px;
+                        rotate: -75deg;
+                    }
+
+                    .indicatorR2{
+                        top: -2px;
+                        right: 36px;
+                        height: 50px;
+                        rotate: -8deg;
+                    }
                 }
 
                 .oeil{
@@ -600,6 +640,7 @@ body{
                     background-color: white;
                     border: 3px solid black;
                     border-radius: 50%;
+                    z-index: 1;
 
                     animation: clicOeilAnimation 5s ease-in-out 1.5s infinite alternate forwards;
 
