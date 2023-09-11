@@ -1,6 +1,6 @@
 import React from 'react';
 import { styleBlob } from './styleBlob';
-import { findBestWay } from './bestWay';
+import { findBestWay } from './bestWay.ts'
 
 class Square extends React.Component{
     render(){
@@ -845,7 +845,7 @@ export class Game extends React.Component{
                 }
             }
 
-            setTimeout(() => setSlabDisactived(), 300)
+            setSlabDisactived()
             let i = 0
             const action = () => {
                 moves(blobActived, movesArray[i].x, movesArray[i].y)
@@ -855,11 +855,12 @@ export class Game extends React.Component{
                     setTimeout(() => action(), 300)
                 }
                 else{
-                    setTimeout(() => setSlabActived(), 200)
+                    setTimeout(() => setSlabActived(), 0) //mystère ???
                     setTimeout(() => this.setState({canMove: true}), 200)
                 }
             }
             action()
+            
         }
 
         const colorChoice = (codeColor) => {
