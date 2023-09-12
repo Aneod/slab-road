@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/slab-road/static/css/main.f493c56c.css",
-    "main.js": "/slab-road/static/js/main.5c376afb.js",
+    "main.css": "/slab-road/static/css/main.533cf8f0.css",
+    "main.js": "/slab-road/static/js/main.c03db65f.js",
     "index.html": "/slab-road/index.html",
-    "main.f493c56c.css.map": "/slab-road/static/css/main.f493c56c.css.map",
-    "main.5c376afb.js.map": "/slab-road/static/js/main.5c376afb.js.map"
+    "main.533cf8f0.css.map": "/slab-road/static/css/main.533cf8f0.css.map",
+    "main.c03db65f.js.map": "/slab-road/static/js/main.c03db65f.js.map"
   },
   "entrypoints": [
-    "static/css/main.f493c56c.css",
-    "static/js/main.5c376afb.js"
+    "static/css/main.533cf8f0.css",
+    "static/js/main.c03db65f.js"
   ]
 }
