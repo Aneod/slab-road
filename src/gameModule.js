@@ -817,7 +817,7 @@ export class Game extends React.Component{
                             yellowSlabKeyActived: newYellowSlabKeyActived
                         })
 
-                        setTimeout(() => activetheNextFalseBlob(currentSquare[5], blobPosition), 100)
+                        setTimeout(() => activetheNextFalseBlob(currentSquare[5], blobPosition), 300)
                     }
 
                     else if(currentSquare[2] === 7){
@@ -1105,6 +1105,7 @@ export class Game extends React.Component{
                             let nbOfRequiredBlob = this.state.matrixOfWall[index][5]
                             let racine = Math.sqrt(nbOfRequiredBlob)
                             let bigRedWidth = racine === Math.floor(racine) ? Math.floor(racine) : Math.floor(racine) + 1
+                            if(bigRedWidth < 2) bigRedWidth = 2
 
                             let yellowIsUsed = this.state.yellowSlabKeyActived.includes(slabKeyList[index])
 
