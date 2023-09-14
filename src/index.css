@@ -10,13 +10,13 @@
 }
 
 body {
-  background-color: rgb(227, 227, 227);
   display: flex;
-  margin: 100px;
+  padding: 100px;
+  width: 100vw;
 }
 @media screen and (max-width: 768px) {
   body {
-    margin: 5vw;
+    padding: 2vw;
   }
 }
 body .menu {
@@ -28,8 +28,8 @@ body .menu {
 }
 @media screen and (max-width: 768px) {
   body .menu {
-    gap: 90px;
-    margin-top: 50px;
+    gap: 10vw;
+    margin-top: 10vw;
   }
 }
 body .menu .title {
@@ -45,7 +45,7 @@ body .menu .title h1 {
 }
 @media screen and (max-width: 768px) {
   body .menu .title h1 {
-    font-size: 100px;
+    font-size: 15.6vw;
   }
 }
 body .menu .title p {
@@ -55,7 +55,7 @@ body .menu .title p {
 }
 @media screen and (max-width: 768px) {
   body .menu .title p {
-    font-size: 36px;
+    font-size: 7.2vw;
   }
 }
 body .menu .levelSelection {
@@ -86,6 +86,8 @@ body .menu .levelSelection .levelSelector {
   body .menu .levelSelection .levelSelector {
     width: 25vw;
     height: 25vw;
+    font-size: 12.8vw;
+    border-width: 1vw;
   }
 }
 body .menu .levelSelection .levelSelector:hover {
@@ -107,6 +109,9 @@ body .menu .levelSelection .tutoSelector {
 @media screen and (max-width: 768px) {
   body .menu .levelSelection .tutoSelector {
     width: 85vw;
+    height: -moz-max-content;
+    height: max-content;
+    padding: 15px;
   }
 }
 body .menu .levelSelection .tutoSelector:hover {
@@ -115,8 +120,18 @@ body .menu .levelSelection .tutoSelector:hover {
 body .menu .levelSelection .tutoSelector h1 {
   font-size: 80px;
 }
+@media screen and (max-width: 768px) {
+  body .menu .levelSelection .tutoSelector h1 {
+    font-size: 13vw;
+  }
+}
 body .menu .levelSelection .tutoSelector p {
   font-size: 28px;
+}
+@media screen and (max-width: 768px) {
+  body .menu .levelSelection .tutoSelector p {
+    font-size: 7vw;
+  }
 }
 body .menu .dataLevel {
   position: fixed;
@@ -140,7 +155,10 @@ body .menu .dataLevel {
     left: 10%;
     width: 80%;
     top: 24%;
-    height: 54%;
+    height: 52%;
+    border-width: 1.6vw;
+    padding: 8vw;
+    gap: 6vw;
   }
 }
 body .menu .dataLevelTuto {
@@ -181,12 +199,32 @@ body .menu .dataLevelRetour {
   border: 2px solid rgb(184, 184, 184);
   transition: 0.2s ease;
 }
+@media screen and (max-width: 768px) {
+  body .menu .dataLevelRetour {
+    width: 8vw;
+    height: 8vw;
+    left: 3vw;
+    top: 2vw;
+    font-size: 3.6vw;
+  }
+}
 body .menu .dataLevelRetour:hover {
   color: rgb(123, 123, 123);
   border: 2px solid rgb(123, 123, 123);
 }
+@media screen and (max-width: 768px) {
+  body .menu .dataLevelRetour:hover {
+    color: rgb(184, 184, 184);
+    border: 2px solid rgb(184, 184, 184);
+  }
+}
 body .menu .dataLevelRetour:hover p {
   margin-left: 40px;
+}
+@media screen and (max-width: 768px) {
+  body .menu .dataLevelRetour:hover p {
+    margin-left: 3vw;
+  }
 }
 body .menu .dataLevelRetour p {
   background-color: white;
@@ -211,14 +249,27 @@ body .menu .dataLevelHeader .title {
 body .menu .dataLevelHeader .title h1 {
   font-size: 74px;
 }
-body .menu .dataLevelHeader .title .specific div {
-  position: relative;
-  left: 10px;
+@media screen and (max-width: 768px) {
+  body .menu .dataLevelHeader .title h1 {
+    font-size: 12.8vw;
+  }
+}
+body .menu .dataLevelHeader .title .specific {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
 }
 body .menu .dataLevelHeader .title .specific p {
   font-size: 24px;
   position: relative;
-  left: 10px;
+  left: 0px;
+}
+@media screen and (max-width: 768px) {
+  body .menu .dataLevelHeader .title .specific p {
+    font-size: 4.4vw;
+    gap: 4vw;
+  }
 }
 body .menu .img {
   width: 100%;
@@ -237,9 +288,9 @@ body .menu .dataLevelJouer {
 }
 @media screen and (max-width: 768px) {
   body .menu .dataLevelJouer {
-    font-size: 36px;
+    font-size: 5.6vw;
     width: 70%;
-    padding: 25px;
+    padding: 4vw;
   }
 }
 body .menu .dataLevelJouer:hover {
@@ -326,6 +377,7 @@ body .displayGame .game {
 }
 @media screen and (max-width: 768px) {
   body .displayGame .game {
+    margin-top: 37vw;
     max-width: 100%;
   }
 }
@@ -644,11 +696,27 @@ body .displayGame .buttonPanel {
   align-items: center;
   gap: 5px;
 }
+@media screen and (max-width: 768px) {
+  body .displayGame .buttonPanel {
+    top: 6.25vw;
+    width: 25vw;
+    height: 25vw;
+    border-width: 2vw;
+    font-size: 16vw;
+    background-color: white;
+  }
+}
 body .displayGame .buttonPanel .barrette {
   width: 12px;
   height: 60px;
   background-color: black;
   border-radius: 3px;
+}
+@media screen and (max-width: 768px) {
+  body .displayGame .buttonPanel .barrette {
+    width: 3vw;
+    height: 15vw;
+  }
 }
 body .displayGame .buttonSettings {
   right: 25px;
